@@ -1,0 +1,29 @@
+<!-- Container #1 -->
+
+<div class="asd-header">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <i class="fa fa-bars" aria-hidden="true" ng-click="$ctrl.toggleSideNav()"></i>
+      
+      <span class="asd-title">AngularJS Redux</span>
+
+      </div>
+  </nav>
+</div>
+
+<div class="asd-sidenav" ng-class="{'active': $ctrl.showSideNav}">
+  <ul>
+    <li>
+      Menu Item 1
+    </li>
+    <li>
+      Menu Item 2
+    </li>
+  </ul>
+</div>
+
+<div class="asd-body">
+
+  <div ui-view></div>
+
+</div>
