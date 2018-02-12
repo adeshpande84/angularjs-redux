@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux';
-import {AddressReducer} from './address.reducer';
+import {ProviderReducer} from './provider.reducer';
+//import {AddressReducer} from './address.reducer';
 
 export const RootReducer = combineReducers({
-	address: AddressReducer
+	provider: ProviderReducer
 })

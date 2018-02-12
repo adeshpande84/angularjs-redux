@@ -1,0 +1,31 @@
+<div class="col-md-6">
+	<div class="stagingPanel addressBox" ng-if="$ctrl.address.staging.ADDR_ID">
+		<div class="btn-group btn-group-sm" role="group">
+          <button type="button" class="btn btn-default" ng-click="$ctrl.accept()">Accept</button>
+          <button type="button" class="btn btn-default" ng-click="$ctrl.reject()">Reject</button>
+        </div><br><br>
+		{{$ctrl.address.staging.STATUS}}<br>
+		{{$ctrl.address.staging.ADDR_ID}}<br>
+		{{$ctrl.address.staging.PRAD_ADDR1}}<br>
+		{{$ctrl.address.staging.PRAD_ADDR2}}<br>
+		{{$ctrl.address.staging.PRAD_CITY}}<br>
+		{{$ctrl.address.staging.PRAD_STATE}}<br>
+		{{$ctrl.address.staging.PRAD_ZIP}}<br>
+	</div>
+</div>
+<div class="col-md-6">
+	<div class="addressBox">
+		<div class="btn-group btn-group-sm" role="group">
+          <button type="button" class="btn btn-default" ng-click="$ctrl.rollback()">Rollback</button>
+          <button type="button" class="btn btn-default" ng-click="$ctrl.onHold()">Put On Hold</button>
+        </div><br><br>
+		{{$ctrl.address.master.STATUS}}<br>
+		{{$ctrl.address.master.ADDR_ID}}<br>
+		{{$ctrl.address.master.PRAD_ADDR1}}<br>
+		{{$ctrl.address.master.PRAD_ADDR2}}<br>
+		{{$ctrl.address.master.PRAD_CITY}}<br>
+		{{$ctrl.address.master.PRAD_STATE}}<br>
+		{{$ctrl.address.master.PRAD_ZIP}}<br>
+
+	</div>
+</div>

@@ -1,12 +1,15 @@
 import uiRouter from '@uirouter/angularjs';
+import ngAnimate from 'angular-animate';
+import ngRedux from 'ng-redux';
 import homeComponent from './home.component';
 import HomeService from './home.service';
+import { RootReducer } from '../../reducers';
 
 const home = angular
-	.module('components.home',[uiRouter])
+	.module('components.home',[uiRouter,ngRedux,ngAnimate])
 	.component('home',homeComponent)
 	.service('HomeService',HomeService)
-	.config(['$stateProvider',function($stateProvider) {
+	.config(['$stateProvider','$ngReduxProvider',function($stateProvider,$ngReduxProvider) {
 		$stateProvider.state('home',{
 			url: '/home',
 			component: 'home',
@@ -17,8 +20,12 @@ const home = angular
 					return HomeService.getTitle();
 				}],
 
-				data: ['HomeService', function(HomeService) {
-					return HomeService.getProvider();
+				data: ['HomeService',function(HomeService) {
+
+					return HomeService.getProvider().then(function(d) {
+						$ngReduxProvider.createStoreWith(RootReducer,[],[],{provider: d});
+						return d;
+					});
 				}]
 			}
 		});

@@ -18,38 +18,7 @@
         </div><br><br>
 		<br>
 		<div class="row" ng-repeat="address in $ctrl.provider.addressList">
-			<div class="col-md-6">
-				<div class="addressBox">
-					<div class="btn-group btn-group-sm" role="group">
-			          <button type="button" class="btn btn-default" ng-click="$ctrl.accept()">Accept</button>
-			          <button type="button" class="btn btn-default" ng-click="$ctrl.reject()">Reject</button>
-			        </div><br><br>
-					{{address.staging.STATUS}}<br>
-					{{address.staging.ADDR_ID}}<br>
-					{{address.staging.PRAD_ADDR1}}<br>
-					{{address.staging.PRAD_ADDR2}}<br>
-					{{address.staging.PRAD_CITY}}<br>
-					{{address.staging.PRAD_STATE}}<br>
-					{{address.staging.PRAD_ZIP}}<br>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="addressBox">
-					<div class="btn-group btn-group-sm" role="group">
-			          <button type="button" class="btn btn-default" ng-click="$ctrl.rollback()">Rollback</button>
-			          <button type="button" class="btn btn-default" ng-click="$ctrl.onHold()">Put On Hold</button>
-			        </div><br><br>
-					{{address.master.STATUS}}<br>
-					{{address.master.ADDR_ID}}<br>
-					{{address.master.PRAD_ADDR1}}<br>
-					{{address.master.PRAD_ADDR2}}<br>
-					{{address.master.PRAD_CITY}}<br>
-					{{address.master.PRAD_STATE}}<br>
-					{{address.master.PRAD_ZIP}}<br>
-
-				</div>
-			</div>
-			
+			<address address="address" address-index="$index"></address>
 		</div>
 		
 		

@@ -1,0 +1,71 @@
+{
+	provider: {
+
+		previous: {
+			summary: {
+
+			},
+			info: {
+				previous: {
+					staging: {
+
+					},
+					master: {
+
+					}
+				},
+				present: {
+					staging: {
+
+					},
+					master: {
+
+					}
+				}
+			},
+			addressList: [
+				{
+					previous: {
+						staging: {
+
+						},
+						master: {
+
+						}
+					},
+					present: {
+						staging: {
+
+						},
+						master: {
+
+						}
+					}
+				},
+				{
+					previous: {
+						staging: {
+
+						},
+						master: {
+
+						}
+					},
+					present: {
+						staging: {
+
+						},
+						master: {
+
+						}
+					}
+				},
+				...
+			]
+		},
+
+		present: {
+
+		}
+	}
+}
