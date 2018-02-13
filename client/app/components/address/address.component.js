@@ -14,7 +14,7 @@ const addressComponent = {
 			
 			var self = this;
 			this.mapToStateThis = function(state) {
-				console.log('mapToStateThis AddressComponent cns',state);
+				console.log('mapToStateThis AddressComponent cns',state,self.addressIndex);
 				return {
 					address: state.provider.addressList[self.addressIndex]
 				}

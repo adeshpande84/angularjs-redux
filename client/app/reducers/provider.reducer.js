@@ -2,6 +2,7 @@
 import {combineReducers} from 'redux';
 
 import {AddressListReducer} from './address-list.reducer';
+import {ProviderInfoReducer} from './provider-info.reducer';
 import {ProviderSummaryReducer} from './provider-summary.reducer';
 
 function saveProvider(state = {},action) {
@@ -19,8 +20,9 @@ function rollbackProvider(state = {},action) {
     return state;
 }
 
-export const RootReducer = combineReducers({
-    saveProvider,rollbackProvider,
+export const ProviderReducer = combineReducers({
+    //saveProvider,rollbackProvider,
+    info: ProviderInfoReducer,
     summary: ProviderSummaryReducer,
     addressList: AddressListReducer 
 });

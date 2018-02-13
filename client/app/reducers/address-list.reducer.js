@@ -6,7 +6,7 @@ const initialState = [];
 export function AddressListReducer(state = initialState, action) {  
     switch(action.type) {
         case 'ACCEPT_STAGING':
-            console.log('AddressReducer ACCEPT_STAGING',state,action);
+            console.log('AddressListReducer ACCEPT_STAGING',state,action);
             var addressListCopy = cloneDeep(state);
             var addressIndex = action.payload.addressIndex;
             addressListCopy[addressIndex].master = addressListCopy[addressIndex].staging;
