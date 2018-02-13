@@ -1,0 +1,9 @@
+<h4>Address List</h4>
+<div class="btn-group btn-group-sm" role="group">
+  <button type="button" class="btn btn-default" ng-click="$ctrl.rollbackAllAddress()">Rollback All Address</button>
+  
+</div><br><br>
+<br>
+<div class="row" ng-repeat="address in $ctrl.addressList">
+	<address address="address" address-index="$index"></address>
+</div>
