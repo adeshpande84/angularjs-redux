@@ -1,0 +1,24 @@
+<h4>Info</h4>
+<div class="row">
+<div class="col-md-6">
+	<div class="stagingPanel infoBox" ng-if="$ctrl.info.staging.PROV_ID">
+		<div class="btn-group btn-group-sm" role="group">
+          <button type="button" class="btn btn-default" ng-click="$ctrl.accept()">Accept</button>
+          <button type="button" class="btn btn-default" ng-click="$ctrl.reject()">Reject</button>
+        </div><br><br>
+		<input ng-value="$ctrl.info.staging.PROV_FIRST_NAME"></input><br>
+		{{$ctrl.info.staging.PROV_LAST_NAME}}<br>
+	</div>
+</div>
+<div class="col-md-6">
+	<div class="infoBox">
+		<div class="btn-group btn-group-sm" role="group">
+          <button type="button" class="btn btn-default" ng-click="$ctrl.rollback()">Rollback</button>
+          <button type="button" class="btn btn-default" ng-click="$ctrl.onHold()">Put On Hold</button>
+        </div><br><br>
+		<input ng-value="$ctrl.info.master.PROV_FIRST_NAME"></input><br>
+		{{$ctrl.info.master.PROV_LAST_NAME}}<br>
+
+	</div>
+</div>
+</div>

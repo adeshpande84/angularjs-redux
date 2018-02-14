@@ -5,5 +5,5 @@
 </div><br><br>
 <br>
 <div class="row" ng-repeat="address in $ctrl.addressList">
-	<address address="address" address-index="$index"></address>
+	<address address="address" address-index="$index" address-previous="$ctrl.addressListPrevious[$index]"></address>
 </div>

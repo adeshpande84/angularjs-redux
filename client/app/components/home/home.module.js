@@ -23,7 +23,7 @@ const home = angular
 				data: ['HomeService',function(HomeService) {
 
 					return HomeService.getProvider().then(function(d) {
-						$ngReduxProvider.createStoreWith(RootReducer,[],[],{provider: d});
+						$ngReduxProvider.createStoreWith(RootReducer,[],[],{provider: d.present});
 						return d;
 					});
 				}]

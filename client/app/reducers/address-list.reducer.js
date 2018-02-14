@@ -3,24 +3,56 @@ import cloneDeep from 'lodash.clonedeep';
 
 const initialState = [];
 
-export function AddressListReducer(state = initialState, action) {  
+
+function acceptUpdate(state) {
+
+}
+
+function acceptDelete(state) {
+
+}
+
+
+function addressReducer(state,action) {
     switch(action.type) {
-        case 'ACCEPT_STAGING':
+        case 'ACCEPT_ADDRESS_STAGING':
+
             console.log('AddressListReducer ACCEPT_STAGING',state,action);
             var addressListCopy = cloneDeep(state);
             var addressIndex = action.payload.addressIndex;
             addressListCopy[addressIndex].master = addressListCopy[addressIndex].staging;
             addressListCopy[addressIndex].staging = {};
             return addressListCopy;
-            break;
-        case 'ROLLBACK_ADDRESSITEM':
-            console.log('AddressListReducer ROLLBACK_ADDRESSITEM',state,action);
+            
+        case 'ROLLBACK_ADDRESS':
+            console.log('AddressListReducer ROLLBACK_ADDRESS',state,action);
+            var addressListCopy = cloneDeep(state);
+            var addressIndex = action.payload.addressIndex;
+            var addressCopy = cloneDeep(action.payload.addressPrevious);
+
+            addressListCopy[addressIndex] = addressCopy;
+
+            return addressListCopy;
+        
+        default:
             return state;
+    }
+}
+
+export function AddressListReducer(state = initialState, action) {  
+    switch(action.type) {
+        case 'ACCEPT_ADDRESS_STAGING':
+            var addressIndex = action.payload.addressIndex;
+            return addressReducer(state,action);
+        case 'ROLLBACK_ADDRESS':
+            var addressIndex = action.payload.addressIndex;
+            return addressReducer(state,action);
         case 'ROLLBACK_ADDRESSLIST':
-            //create new state by copying staging to master. mark staging as processed. DO NOT mutate existing state. Return a new copy of state
             console.log('AddressListReducer ROLLBACK_ADDRESSLIST',state,action);
-            return state;
-            break;
+            var stateCopy = cloneDeep(action.payload);
+
+            return stateCopy;
+            
         default:
             return state;
     }

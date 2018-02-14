@@ -4,6 +4,7 @@ import AddressListActions from '../../actions/address-list.actions.js';
 const addressListComponent = {
 	bindings: {
 		addressList: '<',
+		addressListPrevious: '<',
 				
 	},
 	templateUrl,
@@ -27,7 +28,8 @@ const addressListComponent = {
 		}
 
 		rollbackAllAddress() {
-			this.rollbackAddressList(this.addressList);
+			console.log('addressListComponent rollbackAllAddress');
+			this.rollbackAddressList(this.addressListPrevious);
 		}
 
 		$onDestroy() {

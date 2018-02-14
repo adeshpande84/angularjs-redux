@@ -1,14 +1,14 @@
 function saveProvider(provider) {
 	return {
-		type: 'SAVE',
+		type: 'SAVE_PROVIDER',
 		payload: provider
 	}
 }
 
-function rollbackProvider(provider) {
+function rollbackProvider(providerPrevious) {
 	return {
-		type: 'ROLLBACK',
-		payload: provider
+		type: 'ROLLBACK_PROVIDER',
+		payload: providerPrevious
 	}
 }
 

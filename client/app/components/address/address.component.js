@@ -4,7 +4,8 @@ import AddressActions from '../../actions/address.actions.js';
 const addressComponent = {
 	bindings: {
 		address: '<',
-		addressIndex: '<'
+		addressIndex: '<',
+		addressPrevious: '<'
 		
 	},
 	templateUrl,
@@ -30,6 +31,10 @@ const addressComponent = {
 		accept() {
 			this.acceptStagingAddress({addressIndex: this.addressIndex});
 			
+		}
+
+		rollback() {
+			this.rollbackAddress({addressIndex: this.addressIndex, addressPrevious: this.addressPrevious});
 		}
 
 		$onDestroy() {

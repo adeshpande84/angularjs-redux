@@ -7,19 +7,15 @@
 		HAS_CHANGED: <span class="text">{{$ctrl.provider.summary.HAS_CHANGED}}</span><br>
 		CHANGE_TYPE: <span class="text">{{$ctrl.provider.summary.CHANGE_TYPE}}</span><br>
 		<br>
-		<button type="button" class="btn btn-default" ng-click="$ctrl.rollbackProvider()">Rollback Provider</button>
+		<button type="button" class="btn btn-default" ng-click="$ctrl.rollback()">Rollback Provider</button>
 	</div>
 
 	<div class="providerBox">
-		<h4>Address List</h4>
-		<div class="btn-group btn-group-sm" role="group">
-          <button type="button" class="btn btn-default" ng-click="$ctrl.rollbackAllAddress()">Rollback Address</button>
-          
-        </div><br><br>
-		<br>
-		<div class="row" ng-repeat="address in $ctrl.provider.addressList">
-			<address address="address" address-index="$index"></address>
-		</div>
+		<info info="$ctrl.provider.info" info-previous="$ctrl.providerPrevious.info"></info>
+	</div>
+
+	<div class="providerBox">
+		<address-list address-list="$ctrl.provider.addressList" address-list-previous="$ctrl.providerPrevious.addressList"></address-list>
 		
 		
 	</div>
