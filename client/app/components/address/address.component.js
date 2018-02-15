@@ -28,12 +28,20 @@ const addressComponent = {
 						
 		}
 
+		valueChanged() {
+			console.log('address value changed');
+			this.addressValueChanged(this.addressIndex);
+		}
+
 		accept() {
+			//console.log('addressComponent accept',this.address);
+
 			this.acceptStagingAddress({addressIndex: this.addressIndex});
 			
 		}
 
 		rollback() {
+			
 			this.rollbackAddress({addressIndex: this.addressIndex, addressPrevious: this.addressPrevious});
 		}
 

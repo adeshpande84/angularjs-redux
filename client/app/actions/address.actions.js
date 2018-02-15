@@ -12,4 +12,18 @@ function rollbackAddress(addressIndex) {
 	}
 }
 
-export default {acceptStagingAddress,rollbackAddress};
+function rollbackAddressList(addressList) {
+	return {
+		type: 'ROLLBACK_ADDRESSLIST',
+		payload: addressList
+	}
+}
+
+function addressValueChanged(addressIndex) {
+	return {
+		type: 'ADDRESS_VALUE_CHANGED',
+		payload: addressIndex
+	}
+}
+
+export default {acceptStagingAddress,rollbackAddress,rollbackAddressList,addressValueChanged};

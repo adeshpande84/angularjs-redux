@@ -12,4 +12,11 @@ function rollbackInfo(infoObj) {
 	}
 }
 
-export default {acceptStagingInfo,rollbackInfo};
+function infoValueChanged() {
+	return {
+		type: 'INFO_VALUE_CHANGED',
+		payload: {}
+	}
+}
+
+export default {acceptStagingInfo,rollbackInfo,infoValueChanged};

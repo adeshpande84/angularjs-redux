@@ -16,12 +16,12 @@
 <div class="col-md-6">
 	<div class="addressBox">
 		<div class="btn-group btn-group-sm" role="group">
-          <button type="button" class="btn btn-default" ng-click="$ctrl.rollback()">Rollback</button>
+          <button type="button" class="btn btn-default" ng-if="$ctrl.address.ACTION_TAKEN_ON_STAGING == 1 || $ctrl.address.ACTION_TAKEN_ON_MASTER == 1" ng-click="$ctrl.rollback()">Rollback</button>
           <button type="button" class="btn btn-default" ng-click="$ctrl.onHold()">Put On Hold</button>
         </div><br><br>
 		{{$ctrl.address.master.STATUS}}<br>
 		{{$ctrl.address.master.ADDR_ID}}<br>
-		{{$ctrl.address.master.PRAD_ADDR1}}<br>
+		<input ng-model="$ctrl.address.master.PRAD_ADDR1" ng-change="$ctrl.valueChanged()" ng-disabled="!$ctrl.address.ACTION_TAKEN_ON_STAGING || $ctrl.address.ACTION_TAKEN_ON_STAGING == 0"></input><br>
 		{{$ctrl.address.master.PRAD_ADDR2}}<br>
 		{{$ctrl.address.master.PRAD_CITY}}<br>
 		{{$ctrl.address.master.PRAD_STATE}}<br>

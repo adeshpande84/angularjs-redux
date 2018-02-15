@@ -6,17 +6,17 @@
           <button type="button" class="btn btn-default" ng-click="$ctrl.accept()">Accept</button>
           <button type="button" class="btn btn-default" ng-click="$ctrl.reject()">Reject</button>
         </div><br><br>
-		<input ng-value="$ctrl.info.staging.PROV_FIRST_NAME"></input><br>
+		<input ng-value="$ctrl.info.staging.PROV_FIRST_NAME" ng-disabled="true"></input><br>
 		{{$ctrl.info.staging.PROV_LAST_NAME}}<br>
 	</div>
 </div>
 <div class="col-md-6">
 	<div class="infoBox">
 		<div class="btn-group btn-group-sm" role="group">
-          <button type="button" class="btn btn-default" ng-click="$ctrl.rollback()">Rollback</button>
+          <button type="button" class="btn btn-default" ng-if="$ctrl.info.ACTION_TAKEN_ON_STAGING == 1 || $ctrl.info.ACTION_TAKEN_ON_MASTER == 1" ng-click="$ctrl.rollback()">Rollback</button>
           <button type="button" class="btn btn-default" ng-click="$ctrl.onHold()">Put On Hold</button>
         </div><br><br>
-		<input ng-value="$ctrl.info.master.PROV_FIRST_NAME"></input><br>
+		<input ng-model="$ctrl.info.master.PROV_FIRST_NAME" ng-change="$ctrl.valueChanged()" ng-disabled="!$ctrl.info.ACTION_TAKEN_ON_STAGING || $ctrl.info.ACTION_TAKEN_ON_STAGING == 0"></input><br>
 		{{$ctrl.info.master.PROV_LAST_NAME}}<br>
 
 	</div>

@@ -1,5 +1,5 @@
 import templateUrl from './address-list.component.html';
-import AddressListActions from '../../actions/address-list.actions.js';
+import AddressActions from '../../actions/address.actions.js';
 
 const addressListComponent = {
 	bindings: {
@@ -15,16 +15,40 @@ const addressListComponent = {
 			var self = this;
 			this.mapToStateThis = function(state) {
 				console.log('mapToStateThis AddressListComponent',state);
+				
+				self.showRollback = self.canShowRollback(state.provider.addressList);
+				
 				return {
 					addressList: state.addressList
 				}
 			};
 
-			this.unsubscribe = this.$ngRedux.connect(this.mapToStateThis,AddressListActions)(this);
+			this.unsubscribe = this.$ngRedux.connect(this.mapToStateThis,AddressActions)(this);
 		}
 
 		$onInit() {
 						
+		}
+
+		
+		canShowRollback(addressList) {
+			console.log('canShowRollback',addressList);
+			var result = false;
+
+			for(var i=0; i<addressList.length; i++) {
+				var address = addressList[i];
+
+				if(address.ACTION_TAKEN_ON_STAGING == 1 || address.ACTION_TAKEN_ON_MASTER == 1) {
+
+					result = result || true;
+					break;
+				}
+
+			}
+
+			console.log('canShowRollback',result);
+			
+			return result;
 		}
 
 		rollbackAllAddress() {

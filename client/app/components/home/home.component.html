@@ -7,7 +7,8 @@
 		HAS_CHANGED: <span class="text">{{$ctrl.provider.summary.HAS_CHANGED}}</span><br>
 		CHANGE_TYPE: <span class="text">{{$ctrl.provider.summary.CHANGE_TYPE}}</span><br>
 		<br>
-		<button type="button" class="btn btn-default" ng-click="$ctrl.rollback()">Rollback Provider</button>
+		<button type="button" class="btn btn-default" ng-if="$ctrl.showRollback" ng-click="$ctrl.rollback()">Rollback Provider</button>
+		<button type="button" class="btn btn-default" ng-if="$ctrl.showSave" ng-click="$ctrl.save()">Save Provider</button>
 	</div>
 
 	<div class="providerBox">
