@@ -12,7 +12,7 @@ export function InfoReducer(state = initialState,action) {
             infoCopy.ACTION_TAKEN_ON_MASTER = 1;
             infoCopy.ACTION_TYPE_ON_STAGING = 'accept';
             infoCopy.master = infoCopy.staging;
-            infoCopy.staging = {};
+            infoCopy.staging.STATUS = 'Processed';
             return infoCopy;
         
         case 'REJECT_INFO_STAGING':
@@ -22,7 +22,7 @@ export function InfoReducer(state = initialState,action) {
             infoCopy.ACTION_TAKEN_ON_MASTER = 0;
             infoCopy.ACTION_TYPE_ON_STAGING = 'reject';
             
-            infoCopy.staging = {};
+            infoCopy.staging.STATUS = 'Processed';
             return infoCopy;
 
         case 'ROLLBACK_INFO':

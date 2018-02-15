@@ -20,6 +20,7 @@ function rollbackAddressList(addressList) {
 }
 
 function addressValueChanged(addressIndex) {
+	
 	return {
 		type: 'ADDRESS_VALUE_CHANGED',
 		payload: addressIndex

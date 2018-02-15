@@ -18,9 +18,7 @@ const homeComponent = {
 
 			var self = this;
 			this.mapToStateThis = function(state) {
-				console.log('mapToStateThis HomeComponent state',state);
-				//self.showSave = false;
-
+				
 				self.showSave = self.canShowSave(state.provider);
 				self.showRollback = self.canShowRollback(state.provider);
 
@@ -115,9 +113,7 @@ const homeComponent = {
 			
 			if(parseInt(provider.summary.HAS_CHANGED) == 1) {
 
-				console.log('Provider has changed');
 				var changedObjects = this.getObjectsChangedinStaging(provider);
-				console.log('objects with HAS_CHANGED = 1',changedObjects);
 
 				for(var i=0; i<changedObjects.length; i++) {
 					var obj = changedObjects[i];
@@ -130,17 +126,13 @@ const homeComponent = {
 				}
 
 			} else {
-				console.log('Provider has not changed');
+				
 				var changedObjects = this.getObjectsChangedinMaster(provider);
 
 				if(changedObjects.length == 0) {
 					result = false;
 				}
 			}
-
-
-
-			//get all records with has_changed = 0 - check if OR of action take on master for those records is 1 
 
 			return result;
 		}

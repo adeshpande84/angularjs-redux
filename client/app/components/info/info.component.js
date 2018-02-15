@@ -11,20 +11,26 @@ const infoComponent = {
 	controller: ['$ngRedux', class InfoComponent {
 		constructor($ngRedux) {
 			this.$ngRedux = $ngRedux;
-			
-			var self = this;
-			this.mapToStateThis = function(state) {
-				
-				return {
-					info: state.info
-				}
-			};
-
-			this.unsubscribe = this.$ngRedux.connect(this.mapToStateThis,InfoActions)(this);
+					
 		}
 
 		$onInit() {
-						
+			var self = this;
+			this.mapToStateThis = function(state) {
+				
+				var info = state.provider.info;
+				self.showStaging = info.staging.STATUS.toLowerCase() != 'processed' && info.staging.STATUS.toLowerCase() != 'nochange';
+				self.masterFieldsDisabled = parseInt(info.HAS_CHANGED) == 1 && (!info.ACTION_TAKEN_ON_STAGING);
+				self.showRollback = parseInt(info.ACTION_TAKEN_ON_STAGING) == 1 || parseInt(info.ACTION_TAKEN_ON_MASTER) == 1;
+
+				//console.log(state.provider.info.HAS_CHANGED,state.provider.info.ACTION_TAKEN_ON_STAGING);
+
+				return {
+					info: info
+				}
+			};
+
+			this.unsubscribe = this.$ngRedux.connect(this.mapToStateThis,InfoActions)(this);			
 		}
 		
 		valueChanged() {

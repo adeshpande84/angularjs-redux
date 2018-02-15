@@ -13,12 +13,15 @@ const addressListComponent = {
 			this.$ngRedux = $ngRedux;
 			
 			var self = this;
+			
 			this.mapToStateThis = function(state) {
-								
+				
+				var addressList = state.provider.addressList;
+
 				self.showRollback = self.canShowRollback(state.provider.addressList);
 				
 				return {
-					addressList: state.addressList
+					addressList: addressList
 				}
 			};
 
