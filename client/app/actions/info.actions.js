@@ -5,6 +5,13 @@ function acceptStagingInfo(infoObj) {
 	}
 }
 
+function rejectStagingInfo(infoObj) {
+	return {
+		type: 'REJECT_INFO_STAGING',
+		payload: infoObj
+	}
+}
+
 function rollbackInfo(infoObj) {
 	return {
 		type: 'ROLLBACK_INFO',
@@ -19,4 +26,4 @@ function infoValueChanged() {
 	}
 }
 
-export default {acceptStagingInfo,rollbackInfo,infoValueChanged};
+export default {acceptStagingInfo,rejectStagingInfo,rollbackInfo,infoValueChanged};

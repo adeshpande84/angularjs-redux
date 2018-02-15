@@ -15,7 +15,7 @@ const addressComponent = {
 			
 			var self = this;
 			this.mapToStateThis = function(state) {
-				console.log('mapToStateThis AddressComponent cns',state,self.addressIndex);
+				
 				return {
 					address: state.provider.addressList[self.addressIndex]
 				}
@@ -29,13 +29,12 @@ const addressComponent = {
 		}
 
 		valueChanged() {
-			console.log('address value changed');
+			
 			this.addressValueChanged(this.addressIndex);
 		}
 
 		accept() {
-			//console.log('addressComponent accept',this.address);
-
+			
 			this.acceptStagingAddress({addressIndex: this.addressIndex});
 			
 		}

@@ -14,8 +14,7 @@ const infoComponent = {
 			
 			var self = this;
 			this.mapToStateThis = function(state) {
-				console.log('self',self);
-				console.log('mapToStateThis InfoComponent',state);
+				
 				return {
 					info: state.info
 				}
@@ -29,7 +28,7 @@ const infoComponent = {
 		}
 		
 		valueChanged() {
-			console.log('value changed');
+			
 			this.infoValueChanged();
 		}
 
@@ -38,8 +37,12 @@ const infoComponent = {
 			
 		}
 
+		reject() {
+			this.rejectStagingInfo({info: this.info});
+		}
+
 		rollback() {
-			console.log('infoComponent rollback');
+			
 			this.rollbackInfo(this.infoPrevious);
 		}
 
