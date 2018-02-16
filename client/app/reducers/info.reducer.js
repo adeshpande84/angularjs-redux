@@ -8,10 +8,21 @@ export function InfoReducer(state = initialState,action) {
         case 'ACCEPT_INFO_STAGING':
             
             var infoCopy = cloneDeep(state);
+
+            if(infoCopy.CHANGE_TYPE.toLowerCase() == 'add') {
+                infoCopy.master = cloneDeep(infoCopy.staging);
+                infoCopy.master.STATUS = 'Active';
+            } else if(infoCopy.CHANGE_TYPE.toLowerCase() == 'update') {
+                var existingMasterStatus = infoCopy.master.STATUS;
+                infoCopy.master = cloneDeep(infoCopy.staging);
+                infoCopy.master.STATUS = existingMasterStatus;
+            }
+
             infoCopy.ACTION_TAKEN_ON_STAGING = 1;
             infoCopy.ACTION_TAKEN_ON_MASTER = 1;
             infoCopy.ACTION_TYPE_ON_STAGING = 'accept';
-            infoCopy.master = infoCopy.staging;
+            //infoCopy.master = cloneDeep(infoCopy.staging);
+
             infoCopy.staging.STATUS = 'Processed';
             return infoCopy;
         
@@ -19,7 +30,7 @@ export function InfoReducer(state = initialState,action) {
             
             var infoCopy = cloneDeep(state);
             infoCopy.ACTION_TAKEN_ON_STAGING = 1;
-            infoCopy.ACTION_TAKEN_ON_MASTER = 0;
+            //infoCopy.ACTION_TAKEN_ON_MASTER = 0;
             infoCopy.ACTION_TYPE_ON_STAGING = 'reject';
             
             infoCopy.staging.STATUS = 'Processed';

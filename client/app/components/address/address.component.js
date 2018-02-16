@@ -1,5 +1,6 @@
 import templateUrl from './address.component.html';
 import AddressActions from '../../actions/address.actions.js';
+import isEmpty from 'lodash-es/isEmpty.js';
 
 const addressComponent = {
 	bindings: {
@@ -27,8 +28,13 @@ const addressComponent = {
 				self.showStaging = true;
 								
 				//if(typeof address != 'undefined') {
-					self.showStaging = address.staging.STATUS.toLowerCase() != 'processed' && address.staging.STATUS.toLowerCase() != 'nochange';
+				self.showStaging = address.staging.STATUS.toLowerCase() != 'processed' && address.staging.STATUS.toLowerCase() != 'nochange';
 				//}
+
+				//if
+				self.hideMaster = false;
+
+				self.hideMaster = typeof address.master == 'undefined' || isEmpty(address.master);
 
 				self.masterFieldsDisabled = parseInt(address.HAS_CHANGED) == 1 && (!address.ACTION_TAKEN_ON_STAGING);
 				self.showRollback = parseInt(address.ACTION_TAKEN_ON_STAGING) == 1 || parseInt(address.ACTION_TAKEN_ON_MASTER) == 1;
@@ -51,6 +57,10 @@ const addressComponent = {
 			
 			this.acceptStagingAddress({addressIndex: this.addressIndex});
 			
+		}
+
+		reject() {
+			this.rejectStagingAddress({addressIndex: this.addressIndex});
 		}
 
 		rollback() {

@@ -5,6 +5,13 @@ function acceptStagingAddress(addressObj) {
 	}
 }
 
+function rejectStagingAddress(addressObj) {
+	return {
+		type: 'REJECT_ADDRESS_STAGING',
+		payload: addressObj
+	}
+}
+
 function rollbackAddress(addressIndex) {
 	return {
 		type: 'ROLLBACK_ADDRESS',
@@ -27,4 +34,4 @@ function addressValueChanged(addressIndex) {
 	}
 }
 
-export default {acceptStagingAddress,rollbackAddress,rollbackAddressList,addressValueChanged};
+export default {acceptStagingAddress,rejectStagingAddress,rollbackAddress,rollbackAddressList,addressValueChanged};

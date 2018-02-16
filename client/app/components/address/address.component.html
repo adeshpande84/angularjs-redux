@@ -14,7 +14,7 @@
 	</div>
 </div>
 <div class="col-md-6">
-	<div class="addressBox">
+	<div class="addressBox" ng-if="!$ctrl.hideMaster">
 		<div class="btn-group btn-group-sm" role="group">
           <button type="button" class="btn btn-default" ng-if="$ctrl.showRollback" ng-click="$ctrl.rollback()">Rollback</button>
           <button type="button" class="btn btn-default" ng-click="$ctrl.onHold()">Put On Hold</button>

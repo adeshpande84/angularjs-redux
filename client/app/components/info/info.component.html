@@ -6,6 +6,7 @@
           <button type="button" class="btn btn-default" ng-click="$ctrl.accept()">Accept</button>
           <button type="button" class="btn btn-default" ng-click="$ctrl.reject()">Reject</button>
         </div><br><br>
+        {{$ctrl.info.staging.STATUS}}<br>
 		<input ng-value="$ctrl.info.staging.PROV_FIRST_NAME" ng-disabled="true"></input><br>
 		{{$ctrl.info.staging.PROV_LAST_NAME}}<br>
 	</div>
@@ -16,6 +17,7 @@
           <button type="button" class="btn btn-default" ng-if="$ctrl.showRollback" ng-click="$ctrl.rollback()">Rollback</button>
           <button type="button" class="btn btn-default" ng-click="$ctrl.onHold()">Put On Hold</button>
         </div><br><br>
+        {{$ctrl.info.master.STATUS}}<br>
 		<input ng-model="$ctrl.info.master.PROV_FIRST_NAME" ng-change="$ctrl.valueChanged()" ng-disabled="$ctrl.masterFieldsDisabled"></input><br>
 		{{$ctrl.info.master.PROV_LAST_NAME}}<br>
 
